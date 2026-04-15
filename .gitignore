@@ -1,0 +1,66 @@
+# =========================
+# Node / Next.js
+# =========================
+node_modules/
+.next/
+out/
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Python (you have .venv)
+# =========================
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# Testing / temp files
+# =========================
+*.log
+*.tmp
+*.temp
+
+# =========================
+# Audio / large files (important for you)
+# =========================
+*.mp3
+*.wav
+*.webm
+
+# =========================
+# Misc
+# =========================
+coverage/
+.cache/
+ai-tutor-screener/
