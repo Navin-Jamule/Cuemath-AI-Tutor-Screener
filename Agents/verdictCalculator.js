@@ -20,7 +20,7 @@ const DIMENSION_WEIGHTS = {
 
 // ── VERDICT THRESHOLDS ────────────────────────────────────────
 const THRESHOLDS = {
-  pass:   7.5,
+  pass:   7.0,
   hold:   5.5,
   // below 5.5 = Reject
 };
