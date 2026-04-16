@@ -77,7 +77,6 @@ input, select {
   clip: rect(0,0,0,0);
 }
 
-/* FIXED STYLES */
 
 .aiBox {
   display: flex;
