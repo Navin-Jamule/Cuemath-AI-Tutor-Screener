@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 // /Agents/prompts.js
-// All GPT-4o system prompts + model config in one place
+// All GPT-4o-mini system prompts + model config in one place
 // Change MODEL_CONFIG to switch models for testing
 // ─────────────────────────────────────────────────────────────
 

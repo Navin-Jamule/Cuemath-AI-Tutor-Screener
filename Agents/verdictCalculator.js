@@ -4,7 +4,7 @@
 // No API calls — fully unit-testable offline
 //
 // WHY THIS EXISTS:
-// GPT-4o sometimes makes arithmetic errors.
+// GPT-4o-mini sometimes makes arithmetic errors.
 // We always re-verify the final score with our own math.
 // The LLM scores the dimensions — we do the weighted sum.
 // ─────────────────────────────────────────────────────────────

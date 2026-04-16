@@ -3,6 +3,21 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+// ── Cuemath Logo SVG ──────────────────────────────────────────────────────────
+function CuemathLogo({ size = 32 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 36 36" fill="none">
+      <circle cx="18" cy="18" r="18" fill="#f5b800"/>
+      <path d="M18 6C18 6 24 9 24 17C24 22 21.5 25 18 27C14.5 25 12 22 12 17C12 9 18 6 18 6Z" fill="#1a1a2e"/>
+      <path d="M12 20L9 24L13 22Z" fill="#1a1a2e"/>
+      <path d="M24 20L27 24L23 22Z" fill="#1a1a2e"/>
+      <circle cx="18" cy="16" r="2.8" fill="#f5b800"/>
+      <path d="M15.5 27C15.5 27 16.2 30 18 31C19.8 30 20.5 27 20.5 27C19.3 28.2 18.6 28.5 18 28.5C17.4 28.5 16.7 28.2 15.5 27Z" fill="white"/>
+      <path d="M16.8 27.2C16.8 27.2 17.1 29.5 18 30.5C18.9 29.5 19.2 27.2 19.2 27.2C18.8 28 18.4 28.2 18 28.2C17.6 28.2 17.2 28 16.8 27.2Z" fill="white" opacity="0.7"/>
+    </svg>
+  );
+}
+
 export default function ThankYouPage() {
   const router = useRouter();
   const [visible,    setVisible]    = useState(false);
@@ -18,7 +33,11 @@ export default function ThankYouPage() {
     setSessionId(sid);
   }, [router.isReady, router.query.sessionId]);
 
-  function handleAdminClick() { setShowPrompt(true); setPwError(''); setPassword(''); }
+  function handleAdminClick() {
+    setShowPrompt(true);
+    setPwError('');
+    setPassword('');
+  }
 
   function handlePasswordSubmit(e) {
     e.preventDefault();
@@ -32,12 +51,7 @@ export default function ThankYouPage() {
 
   return (
     <>
-      <Head>
-        <title>Thank You — Cuemath</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet" />
-      </Head>
+      <Head><title>Thank You — Cuemath</title></Head>
 
       <div style={s.page}>
         <div style={s.marginLine} />
@@ -49,18 +63,13 @@ export default function ThankYouPage() {
           transition: 'opacity 0.5s ease, transform 0.5s ease',
         }}>
 
+          {/* Logo */}
           <div style={s.logoRow}>
-            <div style={s.logoBg}>
-              <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-                <path d="M14 4C14 4 18 5.5 18.5 9.5C19 13.5 16 17.5 11.5 18C7 18.5 3.5 15 4 11C4.5 7 8 4.5 11.5 5" stroke="#1a1a2e" strokeWidth="1.8" strokeLinecap="round"/>
-                <path d="M11.5 5L15.5 2L17.5 6.5" fill="#1a1a2e"/>
-                <path d="M7 15.5L5 19" stroke="white" strokeWidth="1.6" strokeLinecap="round"/>
-                <circle cx="12" cy="10" r="1.6" fill="#f5b800"/>
-              </svg>
-            </div>
+            <CuemathLogo size={32} />
             <span style={s.brandName}>Cuemath</span>
           </div>
 
+          {/* Check circle */}
           <div style={s.checkCircle}>
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
               stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -68,15 +77,18 @@ export default function ThankYouPage() {
             </svg>
           </div>
 
-          {/* ── KEY CHANGE: serif heading, larger ── */}
           <h1 style={s.h1}>Interview Complete</h1>
           <p style={s.sub}>Thank you for completing your Cuemath tutor screening.</p>
-          <p style={s.body}>Our team will review your responses and get back to you within 2–3 business days.</p>
+          <p style={s.body}>
+            Our team will review your responses and get back to you within 2–3 business days.
+          </p>
 
           <div style={s.divider} />
 
           {sessionId && (
-            <button onClick={handleAdminClick} style={s.adminBtn}>🔒 Report (Admin only)</button>
+            <button onClick={handleAdminClick} style={s.adminBtn}>
+              🔒 Report (Admin only)
+            </button>
           )}
 
           {showPrompt && (
@@ -117,31 +129,19 @@ const s = {
     position: 'relative', zIndex: 2, width: '100%', maxWidth: '440px',
     background: 'rgba(255,252,245,0.93)', border: '0.5px solid rgba(0,0,0,0.11)',
     borderRadius: '18px', padding: '48px 40px',
-    display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', textAlign: 'center',
+    display: 'flex', flexDirection: 'column', alignItems: 'center',
+    gap: '16px', textAlign: 'center',
   },
-  logoRow: { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' },
-  logoBg: {
-    width: '32px', height: '32px', background: '#f5b800', borderRadius: '50%',
-    display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-  },
+  logoRow:   { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' },
   brandName: { fontSize: '14px', fontWeight: 500, color: '#1a1a2e', letterSpacing: '-0.2px' },
   checkCircle: {
     width: '72px', height: '72px', borderRadius: '50%',
     background: 'rgba(34,197,94,0.08)', border: '1px solid rgba(34,197,94,0.2)',
     display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '4px',
   },
-
-  // ── KEY CHANGE: serif heading ──
-  h1: {
-    fontFamily: "'DM Serif Display', Georgia, serif",
-    fontSize: '28px',       // ← up from 24px
-    fontWeight: 400,        // ← serif at regular weight
-    letterSpacing: '-0.3px',
-    color: '#1a1a2e',
-    margin: 0,
-  },
-  sub:  { fontSize: '15px', color: '#555', margin: 0 },
-  body: { fontSize: '14px', color: '#777', lineHeight: 1.7, margin: 0 },
+  h1:      { fontSize: '24px', fontWeight: 500, letterSpacing: '-0.5px', color: '#1a1a2e', margin: 0 },
+  sub:     { fontSize: '15px', color: '#555', margin: 0 },
+  body:    { fontSize: '14px', color: '#777', lineHeight: 1.7, margin: 0 },
   divider: { width: '100%', height: '1px', background: 'rgba(0,0,0,0.08)', margin: '4px 0' },
   adminBtn: {
     background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.1)',
@@ -150,11 +150,11 @@ const s = {
   },
   promptBox: {
     width: '100%', background: 'rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.09)',
-    borderRadius: '12px', padding: '20px', display: 'flex', flexDirection: 'column',
-    gap: '12px', alignItems: 'center',
+    borderRadius: '12px', padding: '20px',
+    display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center',
   },
-  promptLabel: { fontSize: '13px', color: '#444', fontWeight: 500, margin: 0 },
-  promptForm: { display: 'flex', gap: '8px', width: '100%' },
+  promptLabel:  { fontSize: '13px', color: '#444', fontWeight: 500, margin: 0 },
+  promptForm:   { display: 'flex', gap: '8px', width: '100%' },
   promptInput: {
     flex: 1, background: 'rgba(255,252,245,0.9)', border: '1px solid rgba(0,0,0,0.13)',
     borderRadius: '8px', padding: '8px 12px', fontSize: '14px', color: '#1a1a2e',

@@ -7,7 +7,7 @@ import formidable from "formidable";
 import fs from "fs";
 import path from "path";
 import os from "os";
-import { extractVoiceSignals } from "../../Agents/VoiceSignalExtractor";
+import { extractVoiceSignals } from "../../Agents/voiceSignalExtractor";
 export const config = {
   api: { bodyParser: false },
 };

@@ -1,10 +1,10 @@
 // ─────────────────────────────────────────────────────────────
-// /Agents/voiceSignalExtractor.js
+// /Agents/VoiceSignalExtractor.js
 // Extracts voice quality signals from Whisper verbose_json output
 // Pure JS — zero API calls — runs free on server after Whisper returns
 //
 // INPUT:  Whisper verbose_json response + audio duration in seconds
-// OUTPUT: voiceSignal object injected into GPT-4o judge context
+// OUTPUT: voiceSignal object injected into GPT-4o-mini judge context
 // ─────────────────────────────────────────────────────────────
 
 // ── CONFIG ───────────────────────────────────────────────────

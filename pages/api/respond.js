@@ -1,5 +1,5 @@
 // /pages/api/respond.js
-// transcript + voiceSignal + session → GPT-4o (CONVERSATION_SYSTEM_PROMPT) → aiDecision
+// transcript + voiceSignal + session → GPT-4o-mini (CONVERSATION_SYSTEM_PROMPT) → aiDecision
 
 import OpenAI from "openai";
 import { CONVERSATION_SYSTEM_PROMPT } from "../../Agents/prompts";
